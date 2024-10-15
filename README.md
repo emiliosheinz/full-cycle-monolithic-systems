@@ -28,3 +28,9 @@ The **Single-process monolith**, which is the one we will be focusing on, can be
 2. **Modular monolith:** A monolithic system with loosely coupled components, allowing for easier changes and maintenance. Components are more independent, reducing the risk of ripple effects when modifying individual parts.
 
 3. **Modular monolith with segregated databases:** A modular monolith where each component has its own database, enhancing component independence. However, this approach can lead to challenges in maintaining data consistency and may result in data duplication.
+
+## Application contexts
+
+Below you can find the contexts of the application that we will be building in this repository. It's important to mention that communication between contexts, even though they are in the same monolithic system, should always be done through a [Facade layer](https://refactoring.guru/design-patterns/facade), which will be responsible for enhancing the decoupling between the contexts. Additionally, for external communication, we will have an API Gateway layer, which will be responsible for routing the requests to the correct context.
+
+![Application Contexts](./docs/images/contexts.png)
