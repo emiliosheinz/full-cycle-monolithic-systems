@@ -22,7 +22,7 @@ describe("Add Product usecase unit test", () => {
     const result = await usecase.execute(input);
 
     expect(productRepository.add).toHaveBeenCalled();
-    expect(result.id).toBeDefined;
+    expect(result.id).toBeDefined();
     expect(result.name).toBe(input.name);
     expect(result.description).toBe(input.description);
     expect(result.purchasePrice).toBe(input.purchasePrice);
