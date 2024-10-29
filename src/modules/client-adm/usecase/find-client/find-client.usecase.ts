@@ -1,4 +1,3 @@
-
 import Address from "../../../@shared/domain/value-object/address";
 import ClientGateway from "../../gateway/client.gateway";
 import { FindClientUseCaseInputDto, FindClientUseCaseOutputDto } from "./find-client.usecase.dto";
@@ -12,6 +11,7 @@ export default class FindClientUseCase {
   }
 
   async execute(input: FindClientUseCaseInputDto): Promise<FindClientUseCaseOutputDto> {
+
     const result = await this._clientRepository.find(input.id)
 
     return {

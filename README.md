@@ -34,3 +34,20 @@ The **Single-process monolith**, which is the one we will be focusing on, can be
 Below you can find the contexts of the application that we will be building in this repository. It's important to mention that communication between contexts, even though they are in the same monolithic system, should always be done through a [Facade layer](https://refactoring.guru/design-patterns/facade), which will be responsible for enhancing the decoupling between the contexts. Additionally, for external communication, we will have an API Gateway layer, which will be responsible for routing the requests to the correct context.
 
 ![Application Contexts](./docs/images/contexts.png)
+
+## Running Locally
+
+This application can't currently be run locally, as it is just a reference for the monolithic system architecture. However, you can run the tests by running the following commands:
+
+1. Install the dependencies:
+
+```bash
+npm install
+```
+
+2. Run the tests:
+
+```bash
+npm run test
+```
+
