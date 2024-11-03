@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize-typescript";
 import Id from "../../@shared/domain/value-object/id.value-object";
 import Transaction from "../domain/transaction";
 import TransactionModel from "./transaction.model";
-import TransactionRepostiory from "./transaction.repository";
+import TransactionRepoisitory from "./transaction.repository";
 
 describe("TransactionRepository test", () => {
   let sequelize: Sequelize;
@@ -31,7 +31,7 @@ describe("TransactionRepository test", () => {
     });
     transaction.approve();
 
-    const repository = new TransactionRepostiory();
+    const repository = new TransactionRepoisitory();
     const result = await repository.save(transaction);
 
     expect(result.id.id).toBe(transaction.id.id);
