@@ -80,6 +80,7 @@ describe("Place Order use case", () => {
       await expect(
         placeOrderUsecase["validateProducts"](input),
       ).rejects.toThrow(new Error("Product 1 is not available in stock"));
+      expect(mockProductFacade.checkStock).toHaveBeenCalledTimes(1);
 
       input = {
         clientId: "1",
@@ -94,9 +95,9 @@ describe("Place Order use case", () => {
         clientId: "1",
         products: [{ productId: "0" }, { productId: "1" }, { productId: "2" }],
       };
-      expect(placeOrderUsecase["validateProducts"](input)).rejects.toThrow(
-        new Error("Product 1 is not available in stock"),
-      );
+      await expect(
+        placeOrderUsecase["validateProducts"](input),
+      ).rejects.toThrow(new Error("Product 1 is not available in stock"));
       expect(mockProductFacade.checkStock).toHaveBeenCalledTimes(5);
     });
   });
@@ -123,7 +124,7 @@ describe("Place Order use case", () => {
       placeOrderUsecase["_catalogFacade"] = mockCatalogFacade;
 
       await expect(placeOrderUsecase["getProduct"]("0")).rejects.toThrow(
-        new Error("Product 1 not found"),
+        new Error("Product 0 not found"),
       );
     });
   });

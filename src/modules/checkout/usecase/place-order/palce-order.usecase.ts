@@ -57,7 +57,7 @@ export default class PlaceOrderUserCase implements UseCaseInterface {
       });
 
       if (product.stock <= 0) {
-        throw new Error("Product out of stock");
+        throw new Error(`Product ${p.productId} is not available in stock`);
       }
     }
   }
@@ -65,7 +65,7 @@ export default class PlaceOrderUserCase implements UseCaseInterface {
   private async getProduct(productId: string): Promise<Product> {
     const product = await this._catalogFacade.find({ id: productId });
     if (!product) {
-      throw new Error("Product not found");
+      throw new Error(`Product ${productId} not found`);
     }
     return new Product({
       id: new Id(product.id),
