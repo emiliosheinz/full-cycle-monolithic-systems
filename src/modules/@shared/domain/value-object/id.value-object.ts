@@ -11,4 +11,8 @@ export default class Id implements ValueObject {
   get id(): string {
     return this._id;
   }
+
+  toString(): string {
+    return this._id;
+  }
 }
