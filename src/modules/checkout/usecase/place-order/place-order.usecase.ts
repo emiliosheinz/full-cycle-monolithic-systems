@@ -14,7 +14,7 @@ import {
   PlaceOrderUseCaseOutputDTO,
 } from "./place-order.dto";
 
-export default class PlaceOrderUserCase implements UseCaseInterface {
+export default class PlaceOrderUseCase implements UseCaseInterface {
   private _clientFacade: ClientAdmFacadeInterface;
   private _productFacade: ProductAdmFacadeInterface;
   private _catalogFacade: StoreCatalogFacade;
@@ -69,20 +69,20 @@ export default class PlaceOrderUserCase implements UseCaseInterface {
     const invoice =
       payment.status === "approved"
         ? await this._invoiceFacade.generate({
-            name: client.name,
-            document: client.document,
-            street: client.street,
-            number: client.number,
-            city: client.city,
-            complement: client.complement,
-            state: client.state,
-            zipCode: client.zipCode,
-            items: order.products.map((p) => ({
-              id: p.id.id,
-              name: p.name,
-              price: p.salesPrice,
-            })),
-          })
+          name: client.name,
+          document: client.document,
+          street: client.street,
+          number: client.number,
+          city: client.city,
+          complement: client.complement,
+          state: client.state,
+          zipCode: client.zipCode,
+          items: order.products.map((p) => ({
+            id: p.id.id,
+            name: p.name,
+            price: p.salesPrice,
+          })),
+        })
         : null;
 
     if (payment.status === "approved") order.approve();

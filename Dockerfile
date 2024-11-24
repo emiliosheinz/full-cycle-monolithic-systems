@@ -10,6 +10,9 @@ COPY package.json package-lock.json ./
 # Install dependencies
 RUN npm install
 
+# Install nodemon
+RUN npm install -g nodemon
+
 # Copy the application source code
 COPY . .
 

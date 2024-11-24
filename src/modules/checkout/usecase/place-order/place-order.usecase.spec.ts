@@ -1,6 +1,6 @@
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import Product from "../../domain/product.entity";
-import PlaceOrderUserCase from "./place-order.usecase";
+import PlaceOrderUseCase from "./place-order.usecase";
 import { PlaceOrderUseCaseInputDTO } from "./place-order.dto";
 
 const mockDate = new Date(2000, 1, 1);
@@ -22,7 +22,7 @@ describe("Place Order use case", () => {
       };
 
       // @ts-expect-error - no params in constructor
-      const placeOrderUseCase = new PlaceOrderUserCase();
+      const placeOrderUseCase = new PlaceOrderUseCase();
       // @ts-expect-error - foce set clientFacade
       placeOrderUseCase["_clientFacade"] = mockClientFacade;
 
@@ -39,7 +39,7 @@ describe("Place Order use case", () => {
       };
 
       // @ts-expect-error - no params in constructor
-      const placeOrderUseCase = new PlaceOrderUserCase();
+      const placeOrderUseCase = new PlaceOrderUseCase();
 
       const mockValidateProducts = jest
         // @ts-expect-error - spy on private method
@@ -88,7 +88,7 @@ describe("Place Order use case", () => {
         generate: jest.fn().mockResolvedValue({ id: "1i" }),
       };
 
-      const placeOrderUsecase = new PlaceOrderUserCase(
+      const placeOrderUsecase = new PlaceOrderUseCase(
         // @ts-expect-error - wrong parameter type
         mockClientFacade,
         null,
@@ -218,7 +218,7 @@ describe("Place Order use case", () => {
 
     describe("validateProducts method", () => {
       // @ts-expect-error - no params in constructor
-      const placeOrderUsecase = new PlaceOrderUserCase();
+      const placeOrderUsecase = new PlaceOrderUseCase();
 
       it("should throw an error when no products are selected", async () => {
         const input: PlaceOrderUseCaseInputDTO = {
@@ -288,7 +288,7 @@ describe("Place Order use case", () => {
       });
 
       // @ts-expect-error - no params in constructor
-      const placeOrderUsecase = new PlaceOrderUserCase();
+      const placeOrderUsecase = new PlaceOrderUseCase();
 
       it("should throw an error when product is not found", async () => {
         const mockCatalogFacade = {
