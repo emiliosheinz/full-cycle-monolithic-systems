@@ -4,7 +4,6 @@ import { productRoute } from "./routes/product.route";
 import { clientRoute } from "./routes/client.route";
 import { checkoutRoute } from "./routes/checkout.route";
 import { invoiceRoute } from "./routes/invoice.route";
-import { ProductModel } from "../../modules/product-adm/repository/product.model";
 
 export const app = express();
 app.use(express.json());
@@ -21,6 +20,6 @@ let sequelize: Sequelize;
     storage: ":memory:",
     logging: false,
   });
-  sequelize.addModels([ProductModel]);
+  sequelize.addModels([]);
   await sequelize.sync();
 })();
