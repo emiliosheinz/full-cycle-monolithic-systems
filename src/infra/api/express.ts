@@ -20,7 +20,7 @@ app.use("/clients", clientRoute);
 app.use("/checkout", checkoutRoute);
 app.use("/invoice", invoiceRoute);
 
-let sequelize: Sequelize;
+export let sequelize: Sequelize;
 (async () => {
   sequelize = new Sequelize({
     dialect: "sqlite",

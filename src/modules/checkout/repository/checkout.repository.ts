@@ -8,7 +8,6 @@ import { CheckoutProductModel } from "./checkout-product.model";
 
 export default class CheckoutRepository implements CheckoutGateway {
   async addOrder(order: Order): Promise<void> {
-    console.log(">>> Add order");
     const transaction = await CheckoutOrderModel.sequelize.transaction();
     try {
       await CheckoutOrderModel.create(

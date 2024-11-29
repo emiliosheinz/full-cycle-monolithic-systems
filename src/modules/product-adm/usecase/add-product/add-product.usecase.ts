@@ -20,7 +20,7 @@ export default class AddProductUseCase {
     };
 
     const product = new Product(props);
-    this._productRepository.add(product);
+    await this._productRepository.add(product);
 
     return {
       id: product.id.id,
