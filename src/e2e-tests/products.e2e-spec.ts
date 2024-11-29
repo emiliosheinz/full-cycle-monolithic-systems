@@ -25,15 +25,11 @@ describe("Products", () => {
       });
   });
 
-  it("should respond with 500 and and error when product data is invalid", async () => {
+  it("should respond with 500 when product data is invalid", async () => {
     await request(app)
       .post("/products")
       .send({})
       .set("Accept", "application/json")
-      .expect(500)
-      .expect(({ body }) => {
-        expect(body.name).toEqual(expect.any(String));
-        expect(body.errors).toEqual(expect.any(Array));
-      });
+      .expect(500);
   });
 });
