@@ -8,10 +8,13 @@ import InvoiceModel from "./invoice.model";
 
 export default class InvoiceRepository implements InvoiceGateway {
   async find(id: string): Promise<Invoice> {
-    const invoice = await InvoiceModel.findOne({ where: { id }, include: { all: true } })
+    const invoice = await InvoiceModel.findOne({
+      where: { id },
+      include: { all: true },
+    });
 
     if (!invoice) {
-      throw new Error("Invoice not found")
+      throw new Error("Invoice not found");
     }
 
     return new Invoice({
@@ -26,45 +29,57 @@ export default class InvoiceRepository implements InvoiceGateway {
         invoice.state,
         invoice.zipcode,
       ),
-      items: invoice.items.map((item) => new InvoiceItem({
-        id: new Id(item.id),
-        name: item.name,
-        price: item.price
-      }))
-    })
+      items: invoice.items.map(
+        (item) =>
+          new InvoiceItem({
+            id: new Id(item.id),
+            name: item.name,
+            price: item.price,
+          }),
+      ),
+    });
   }
 
   async generate(invoice: Invoice): Promise<Invoice> {
     const transaction = await InvoiceModel.sequelize.transaction();
     try {
-      await InvoiceModel.create({
-        id: invoice.id.id,
-        name: invoice.name,
-        document: invoice.document,
-        street: invoice.address.street,
-        number: invoice.address.number,
-        complement: invoice.address.complement,
-        city: invoice.address.city,
-        state: invoice.address.state,
-        zipcode: invoice.address.zipCode,
-        createdAt: invoice.createdAt,
-        updatedAt: invoice.updatedAt
-      }, { transaction })
-
-      await Promise.all(invoice.items.map(async (item) => {
-        await InvoiceItemModel.create({
-          id: item.id.id,
-          name: item.name,
-          price: item.price,
-          invoiceId: invoice.id.id,
+      await InvoiceModel.create(
+        {
+          id: invoice.id.id,
+          name: invoice.name,
+          document: invoice.document,
+          street: invoice.address.street,
+          number: invoice.address.number,
+          complement: invoice.address.complement,
+          city: invoice.address.city,
+          state: invoice.address.state,
+          zipcode: invoice.address.zipCode,
           createdAt: invoice.createdAt,
-          updatedAt: invoice.updatedAt
-        }, { transaction })
-      }))
-      return invoice
+          updatedAt: invoice.updatedAt,
+        },
+        { transaction },
+      );
+
+      await Promise.all(
+        invoice.items.map(async (item) => {
+          await InvoiceItemModel.create(
+            {
+              id: item.id.id,
+              name: item.name,
+              price: item.price,
+              invoiceId: invoice.id.id,
+              createdAt: invoice.createdAt,
+              updatedAt: invoice.updatedAt,
+            },
+            { transaction },
+          );
+        }),
+      );
+      await transaction.commit();
+      return invoice;
     } catch (error) {
-      await transaction.rollback()
-      throw error
+      await transaction.rollback();
+      throw error;
     }
   }
 }

@@ -10,6 +10,7 @@ import { ClientModel } from "../../modules/client-adm/repository/client.model";
 import { CheckoutProductModel } from "../../modules/checkout/repository/checkout-product.model";
 import { CheckoutOrderModel } from "../../modules/checkout/repository/checkout-order.model";
 import StoreCatalogProductModel from "../../modules/store-catalog/repository/product.model";
+import TransactionModel from "../../modules/payment/repository/transaction.model";
 
 export const app = express();
 app.use(express.json());
@@ -32,6 +33,7 @@ let sequelize: Sequelize;
     CheckoutProductModel,
     StoreCatalogProductModel,
     ProductModel,
+    TransactionModel,
   ]);
   await sequelize.sync();
 })();
