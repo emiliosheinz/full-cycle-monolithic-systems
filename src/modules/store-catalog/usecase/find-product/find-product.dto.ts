@@ -6,5 +6,5 @@ export interface FindProductOutputDto {
   id: string;
   name: string;
   description: string;
-  salesPrice: number;
+  price: number;
 }

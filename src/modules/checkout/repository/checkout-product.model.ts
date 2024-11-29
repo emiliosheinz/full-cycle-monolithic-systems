@@ -13,7 +13,7 @@ export class CheckoutProductModel extends Model {
   name: string;
 
   @Column({ allowNull: false })
-  salesPrice: number;
+  price: number;
 
   @Column({ allowNull: false })
   description: string;

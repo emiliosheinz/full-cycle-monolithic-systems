@@ -2,9 +2,11 @@
   "devDependencies": {
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.36",
+    "@types/express": "^5.0.0",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.13",
     "@types/jstoxml": "^2.0.4",
+    "@types/morgan": "^1.9.9",
     "@types/supertest": "^6.0.2",
     "@types/uuid": "^10.0.0",
     "eslint": "^9.13.0",
@@ -22,10 +24,10 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@types/express": "^5.0.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "jstoxml": "^5.0.2",
+    "morgan": "^1.10.0",
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.4",
     "sequelize-typescript": "^2.1.6",

@@ -2,7 +2,7 @@ export interface AddProductFacadeInputDto {
   id?: string;
   name: string;
   description: string;
-  purchasePrice: number;
+  price: number;
   stock: number;
 }
 

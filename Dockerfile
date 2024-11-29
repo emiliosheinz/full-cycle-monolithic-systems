@@ -13,6 +13,9 @@ RUN npm install
 # Install nodemon
 RUN npm install -g nodemon
 
+# Install SQLite3 CLI
+RUN apt-get update && apt-get install -y sqlite3
+
 # Copy the application source code
 COPY . .
 

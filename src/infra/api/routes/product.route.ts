@@ -12,7 +12,7 @@ productRoute.post("/", async (req, res) => {
     const input: AddProductInputDto = {
       name: req.body.name,
       description: req.body.description,
-      purchasePrice: req.body.purchasePrice,
+      price: req.body.price,
       stock: req.body.stock,
     };
     const output = await addProductUsecase.execute(input);

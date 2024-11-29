@@ -28,7 +28,7 @@ describe("ProductAdmFacade test", () => {
       id: "1",
       name: "Product 1",
       description: "Product 1 description",
-      purchasePrice: 10,
+      price: 10,
       stock: 10,
     };
 
@@ -39,7 +39,7 @@ describe("ProductAdmFacade test", () => {
     expect(product.id).toBe(input.id);
     expect(product.name).toBe(input.name);
     expect(product.description).toBe(input.description);
-    expect(product.purchasePrice).toBe(input.purchasePrice);
+    expect(product.price).toBe(input.price);
     expect(product.stock).toBe(input.stock);
   });
 
@@ -49,7 +49,7 @@ describe("ProductAdmFacade test", () => {
       id: "1",
       name: "Product 1",
       description: "Product 1 description",
-      purchasePrice: 10,
+      price: 10,
       stock: 10,
     };
     await productFacade.addProduct(input);

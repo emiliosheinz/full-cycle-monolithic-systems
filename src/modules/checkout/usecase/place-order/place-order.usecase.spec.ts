@@ -103,13 +103,13 @@ describe("Place Order use case", () => {
           id: new Id("1p"),
           name: "Product 1",
           description: "Product 1 description",
-          salesPrice: 10,
+          price: 10,
         }),
         new Product({
           id: new Id("2p"),
           name: "Product 2",
           description: "Product 2 description",
-          salesPrice: 20,
+          price: 20,
         }),
       ];
 
@@ -210,7 +210,7 @@ describe("Place Order use case", () => {
           items: products.map((p) => ({
             id: p.id.id,
             name: p.name,
-            price: p.salesPrice,
+            price: p.price,
           })),
         });
       });
@@ -309,7 +309,7 @@ describe("Place Order use case", () => {
             id: "1",
             name: "Product 1",
             description: "Product 1 description",
-            salesPrice: 10,
+            price: 10,
           }),
         };
 
@@ -323,7 +323,7 @@ describe("Place Order use case", () => {
             id: new Id("1"),
             name: "Product 1",
             description: "Product 1 description",
-            salesPrice: 10,
+            price: 10,
           }),
         );
         expect(mockCatalogFacade.find).toHaveBeenCalledTimes(1);

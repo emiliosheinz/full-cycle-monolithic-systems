@@ -69,20 +69,20 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
     const invoice =
       payment.status === "approved"
         ? await this._invoiceFacade.generate({
-          name: client.name,
-          document: client.document,
-          street: client.street,
-          number: client.number,
-          city: client.city,
-          complement: client.complement,
-          state: client.state,
-          zipCode: client.zipCode,
-          items: order.products.map((p) => ({
-            id: p.id.id,
-            name: p.name,
-            price: p.salesPrice,
-          })),
-        })
+            name: client.name,
+            document: client.document,
+            street: client.street,
+            number: client.number,
+            city: client.city,
+            complement: client.complement,
+            state: client.state,
+            zipCode: client.zipCode,
+            items: order.products.map((p) => ({
+              id: p.id.id,
+              name: p.name,
+              price: p.price,
+            })),
+          })
         : null;
 
     if (payment.status === "approved") order.approve();
@@ -125,7 +125,7 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
     return new Product({
       id: new Id(product.id),
       name: product.name,
-      salesPrice: product.salesPrice,
+      price: product.price,
       description: product.description,
     });
   }

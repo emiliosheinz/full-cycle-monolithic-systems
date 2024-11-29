@@ -15,7 +15,7 @@ describe("Add Product usecase unit test", () => {
     const input = {
       name: "Product 1",
       description: "Product 1 description",
-      purchasePrice: 100,
+      price: 100,
       stock: 10,
     };
 
@@ -25,7 +25,7 @@ describe("Add Product usecase unit test", () => {
     expect(result.id).toBeDefined();
     expect(result.name).toBe(input.name);
     expect(result.description).toBe(input.description);
-    expect(result.purchasePrice).toBe(input.purchasePrice);
+    expect(result.price).toBe(input.price);
     expect(result.stock).toBe(input.stock);
   });
 });

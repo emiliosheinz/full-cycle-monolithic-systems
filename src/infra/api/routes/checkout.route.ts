@@ -16,6 +16,7 @@ checkoutRoute.post("/", async (req, res) => {
     const output = await placeOrderUseCase.execute(input);
     res.status(201).send(output);
   } catch (error) {
+    console.log(error);
     res.status(500).send(error);
   }
 });

@@ -63,13 +63,13 @@ describe("Invoice Repository test", () => {
           new Product({
             id: new Id("1"),
             name: "Product 1",
-            salesPrice: 100,
+            price: 100,
             description: "Description 1",
           }),
           new Product({
             id: new Id("2"),
             name: "Product 2",
-            salesPrice: 100,
+            price: 100,
             description: "Description 2",
           }),
         ],
@@ -89,15 +89,15 @@ describe("Invoice Repository test", () => {
       expect(orderDb.clientId).toEqual(order.client.id.id);
       expect(orderDb.products).toHaveLength(2);
       expect(orderDb.products[0].name).toEqual(order.products[0].name);
-      expect(orderDb.products[0].salesPrice).toEqual(
-        order.products[0].salesPrice,
+      expect(orderDb.products[0].price).toEqual(
+        order.products[0].price,
       );
       expect(orderDb.products[0].description).toEqual(
         order.products[0].description,
       );
       expect(orderDb.products[1].name).toEqual(order.products[1].name);
-      expect(orderDb.products[1].salesPrice).toEqual(
-        order.products[1].salesPrice,
+      expect(orderDb.products[1].price).toEqual(
+        order.products[1].price,
       );
       expect(orderDb.products[1].description).toEqual(
         order.products[1].description,
@@ -116,14 +116,14 @@ describe("Invoice Repository test", () => {
         id: "1",
         orderId: order.id,
         name: "Product 1",
-        salesPrice: 100,
+        price: 100,
         description: "Description 1",
       });
       await CheckoutProductModel.create({
         id: "2",
         orderId: order.id,
         name: "Product 2",
-        salesPrice: 100,
+        price: 100,
         description: "Description 2",
       });
 
@@ -140,11 +140,11 @@ describe("Invoice Repository test", () => {
       expect(orderFound.products).toHaveLength(2);
       expect(orderFound.products[0].id.id).toEqual("1");
       expect(orderFound.products[0].name).toEqual("Product 1");
-      expect(orderFound.products[0].salesPrice).toEqual(100);
+      expect(orderFound.products[0].price).toEqual(100);
       expect(orderFound.products[0].description).toEqual("Description 1");
       expect(orderFound.products[1].id.id).toEqual("2");
       expect(orderFound.products[1].name).toEqual("Product 2");
-      expect(orderFound.products[1].salesPrice).toEqual(100);
+      expect(orderFound.products[1].price).toEqual(100);
       expect(orderFound.products[1].description).toEqual("Description 2");
     });
 
