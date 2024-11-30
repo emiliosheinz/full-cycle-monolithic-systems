@@ -1,5 +1,5 @@
-# Monolithic Systems 
- 
+# Monolithic Systems
+
 Monolithic Systems are systems that are built as a single unit. In other words, if you are changing one part of the system and you have to build and deploy the entire system again, you are dealing with a monolithic system. It is a single deployable unit.
 
 Additionally, there are several controversies about monolithic systems, like that they are outdated, hard to maitain, and hard to scale. However, monolithic systems are still widely used and are a good choice for many applications. It is just a matter of taking the right decisions when building your system.
@@ -21,7 +21,7 @@ In Monolith to Microservices by Sam Newman, the author describes three types of 
 
 - **Black-box monolith:** This is an opaque system where the internal workings are unclear or not easily modified. It is difficult to understand or refactor because the codebase is poorly structured or poorly documented. The lack of visibility makes it hard to break this monolith into microservices since internal dependencies and logic are unclear.
 
-The **Single-process monolith**, which is the one we will be focusing on, can be subdevided into three categories: 
+The **Single-process monolith**, which is the one we will be focusing on, can be subdevided into three categories:
 
 1. **Tightly coupled monolith:** A monolithic architecture where all components are highly interdependent, making changes might be difficult due to the strong coupling between them. Modifying one component often requires adjustments to many others.
 
@@ -37,8 +37,6 @@ Below you can find the contexts of the application that we will be building in t
 
 ## Running Locally
 
-This application can't currently be run locally, as it is just a reference for the monolithic system architecture. However, you can run the tests by running the following commands:
-
 1. Install the dependencies:
 
 ```bash
@@ -51,3 +49,8 @@ npm install
 npm run test
 ```
 
+3. Start the application:
+
+```bash
+docker-compose up -d
+```
