@@ -1,14 +1,9 @@
 import request from "supertest";
 import { app } from "../infra/api/express";
+import { product } from "./__fixtures__/product";
 
 describe("Products", () => {
   it("should respond with 201 and the created product data", async () => {
-    const product = {
-      name: "Sample Product",
-      description: "This is a sample product.",
-      stock: 50,
-      price: 19.99,
-    };
     await request(app)
       .post("/products")
       .send(product)

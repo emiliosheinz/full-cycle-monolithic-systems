@@ -1,22 +1,9 @@
 import request from "supertest";
 import { app } from "../infra/api/express";
+import { client } from "./__fixtures__/client";
 
 describe("Clients", () => {
   it("should respond with 201 and the created client data", async () => {
-    const client = {
-      name: "John Doe",
-      email: "johndoe@example.com",
-      document: "123456789",
-      address: {
-        street: "123 Elm Street",
-        number: "45A",
-        complement: "Apt 10",
-        city: "Some City",
-        state: "CA",
-        zipCode: "90210",
-      },
-    };
-
     await request(app)
       .post("/clients")
       .send(client)
