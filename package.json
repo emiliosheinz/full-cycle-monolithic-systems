@@ -22,6 +22,7 @@
   "scripts": {
     "test:unit": "npm run tsc -- --noEmit && jest",
     "test:e2e": "jest --config ./jest-e2e.json",
+    "test": "npm run test:unit && npm run test:e2e",
     "tsc": "tsc"
   },
   "dependencies": {
