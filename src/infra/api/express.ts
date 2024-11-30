@@ -26,7 +26,7 @@ export let sequelize: Sequelize;
 (async () => {
   sequelize = new Sequelize({
     dialect: "sqlite",
-    storage: ":memory:",
+    storage: "sqlite.db",
     logging: false,
   });
   sequelize.addModels([
