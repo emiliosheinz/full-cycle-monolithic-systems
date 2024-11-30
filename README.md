@@ -37,6 +37,8 @@ Below you can find the contexts of the application that we will be building in t
 
 ## Running Locally
 
+To run the tests and start the application, follow the steps below. Additionally, if you want to know more about the available endpoints and their contracts, so you can call them, you can check the E2E tests available in the `src/e2e-tests/` folder.
+
 1. Install the dependencies:
 
 ```bash
@@ -46,7 +48,14 @@ npm install
 2. Run the tests:
 
 ```bash
+# To run both E2E and unit tests
 npm run test
+
+# To run only the unit tests
+npm run test:unit
+
+# To run only the E2E tests
+npm run test:e2e
 ```
 
 3. Start the application:
