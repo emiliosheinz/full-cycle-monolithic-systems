@@ -11,6 +11,8 @@ import { CheckoutProductModel } from "../../modules/checkout/repository/checkout
 import { CheckoutOrderModel } from "../../modules/checkout/repository/checkout-order.model";
 import StoreCatalogProductModel from "../../modules/store-catalog/repository/product.model";
 import TransactionModel from "../../modules/payment/repository/transaction.model";
+import InvoiceModel from "../../modules/invoice/repository/invoice.model";
+import InvoiceItemModel from "../../modules/invoice/repository/invoice-item.model";
 
 export const app = express();
 app.use(express.json());
@@ -34,6 +36,8 @@ export let sequelize: Sequelize;
     StoreCatalogProductModel,
     ProductModel,
     TransactionModel,
+    InvoiceModel,
+    InvoiceItemModel,
   ]);
   await sequelize.sync();
 })();
