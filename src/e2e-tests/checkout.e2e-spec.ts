@@ -1,7 +1,11 @@
 import request from "supertest";
-import { app } from "../infra/api/express";
+import { app, sequelize } from "../infra/api/express";
 import { client } from "./__fixtures__/client";
 import { product } from "./__fixtures__/product";
+
+beforeAll(async () => {
+  await sequelize.sync();
+});
 
 describe("Checkout", () => {
   it("should respond with 201 and the created checkout data", async () => {

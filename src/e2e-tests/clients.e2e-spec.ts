@@ -1,6 +1,10 @@
 import request from "supertest";
-import { app } from "../infra/api/express";
+import { app, sequelize } from "../infra/api/express";
 import { client } from "./__fixtures__/client";
+
+beforeAll(async () => {
+  await sequelize.sync();
+});
 
 describe("Clients", () => {
   it("should respond with 201 and the created client data", async () => {
